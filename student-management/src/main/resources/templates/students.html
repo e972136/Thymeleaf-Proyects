@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Navbar</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+<div class="container">
+        <div class ="row">
+            <h1>Lista de Estudiantes</h1>
+        </div>
+
+        <div class ="row">
+            <div class ="col-lg-3">
+                <a th:href = "@{/students/new}" class="btn btn-primary btn-sm mb-3">Agregar Estudiante</a>
+            </div>
+        </div>
+
+
+
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "student : ${students}">
+                <th scope="row" th:text="${student.id}">1</th>
+                <td th:text="${student.firstName}">Mark</td>
+                <td th:text="${student.lastName}">Otto</td>
+                <td th:text="${student.email}">@mdo</td>
+                <td>
+                    <a>Editar</a>
+                    <a>Borrar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</body>
+</html>
