@@ -32,9 +32,10 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center">Create new Student</h1>
+            <h1 class="text-center">Update Student</h1>
             <div class="card-body">
-                <form th:action="@{/students}" th:object="${student}" method="POST">
+                <form th:action="@{/students/update/}" th:object="${student}" method="POST">
+                    <input type="hidden" name="id" th:field="*{id}" />
                     <div class="form-group">
                         <label>First Name</label>
                         <input
@@ -44,7 +45,7 @@
                             class="form-control"
                             placeholder="Ingresar primer nombre"
                         />
-                        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:red">Invalid Name</p>
+                        <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{firstName}">Invalid Name</p>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
@@ -55,7 +56,7 @@
                             class="form-control"
                             placeholder="Ingresar segundo nombre"
                         />
-                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:red">xxx</span>
+                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">xxx</span>
                     </div>
                     <div class="form-group">
                         <label>First Name</label>
@@ -66,7 +67,6 @@
                             class="form-control"
                             placeholder="Ingresar email"
                         />
-                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red">xxx</span>
                     </div>
 
                     <div class = "box-footer">
