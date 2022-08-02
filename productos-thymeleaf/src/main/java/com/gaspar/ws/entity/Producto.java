@@ -2,8 +2,10 @@ package com.gaspar.ws.entity;
 
 import lombok.Data;
 import org.springframework.cglib.core.internal.LoadingCache;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,10 +22,13 @@ public class Producto {
     @NotEmpty
     private String descripcion;
 
+    @Min(value = 0)
     private BigDecimal precioUnidad;
 
+    @Min(value = 0)
     private Integer existencia;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime fechaCreado;
 
     @PrePersist

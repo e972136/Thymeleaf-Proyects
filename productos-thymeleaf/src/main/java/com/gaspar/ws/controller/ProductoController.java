@@ -51,4 +51,10 @@ public class ProductoController {
         model.addAttribute("producto",producto);
         return "formulario_editar";
     }
+
+    @PostMapping("/producto/eliminar/{id}")
+    String deleteProducto(Producto producto){
+        productoService.deleteProducto(producto.getId());
+        return "redirect:/listar";
+    }
 }

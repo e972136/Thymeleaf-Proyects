@@ -29,4 +29,9 @@ public class ProductoServiceImp implements ProductoService{
     public Producto obtenerProducto(Integer id) {
         return productoRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void deleteProducto(Integer id) {
+        productoRepository.deleteById(id);
+    }
 }

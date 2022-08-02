@@ -38,6 +38,10 @@
             <td th:text="*{existencia}">@mdo</td>
             <td>
                 <a th:href="@{/producto/editar/}+*{id}" class="btn btn-warning">Editar</a>
+                <a class="btn btn-danger"
+                   onclick="eliminarContacto(this)">Eliminar</a>
+                <form th:action="@{/producto/eliminar/}+*{id}" method="post"></form>
+
             </td>
         </tr>
         </tbody>
@@ -57,6 +61,17 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function eliminarContacto(element){
+        let ok = confirm('Seguro de eliminar?');
+        if(ok){
+            element.nextElementSibling.submit();
+        }
+    }
+
+</script>
 
 </body>
 </html>
